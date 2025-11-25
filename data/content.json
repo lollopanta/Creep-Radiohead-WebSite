@@ -1,0 +1,214 @@
+{
+    "hero": {
+      "title": "Creep - Radiohead",
+      "subtitle": "An anthem of alienation and self-loathing",
+      "description": "Radiohead's breakthrough 1992 single that defined alternative rock and became an unexpected commercial success despite the band's initial reluctance.",
+      "image": "/assets/images/hero.jpg"
+    },
+    "band": {
+      "name": "Radiohead",
+      "image": "/assets/images/band.webp",
+      "description": "English rock band formed in 1985, known for their experimental approach to alternative rock and art rock. The band consists of Thom Yorke, Jonny Greenwood, Ed O'Brien, Colin Greenwood, and Philip Selway."
+    },
+    "album": {
+      "name": "Pablo Honey",
+      "cover": "/assets/images/album-cover.jpg",
+      "year": "1993",
+      "label": "EMI Records",
+      "description": "Radiohead's debut studio album that introduced their signature sound blending alternative rock with emotional intensity. 'Creep' became the surprise hit that launched their career."
+    },
+    "songHistory": {
+      "title": "Song History",
+      "timeline": [
+        {
+          "year": "1992",
+          "title": "Song Creation and Initial Reception",
+          "description": "Written during Radiohead's early sessions, the band initially disliked the song and almost discarded it. Thom Yorke wrote it after seeing a girl he was infatuated with at a concert."
+        },
+        {
+          "year": "1993",
+          "title": "Breakthrough Success",
+          "description": "After initially poor chart performance, 'Creep' became a surprise international hit, particularly in Israel and the United States, eventually becoming Radiohead's signature song despite their complicated relationship with it."
+        },
+        {
+          "year": "2000s",
+          "title": "Legacy and Band's Relationship",
+          "description": "The band grew to resent the song's popularity and stopped performing it regularly for years, feeling it overshadowed their more sophisticated later work. They later reintroduced it occasionally in live sets."
+        }
+      ]
+    },
+    "structure": {
+      "title": "Structure & Meter",
+      "stanzaCount": "4 main sections with repeating chorus",
+      "stanzas": [
+        {
+          "name": "Verse",
+          "meter": "4/4 time signature",
+          "syllableCount": "Approximately 8-10 syllables per line",
+          "description": "Slow, contemplative verses with sparse instrumentation building tension before the explosive chorus."
+        },
+        {
+          "name": "Pre-chorus",
+          "meter": "4/4 with rhythmic intensification",
+          "syllableCount": "Shorter, more urgent lines",
+          "description": "Serves as emotional buildup with increasing vocal intensity leading to the explosive chorus."
+        },
+        {
+          "name": "Chorus",
+          "meter": "4/4 with distorted guitar crashes",
+          "syllableCount": "Simple, repetitive structure",
+          "description": "Explosive release of pent-up emotion with Jonny Greenwood's signature guitar crunches accenting the self-loathing lyrics."
+        },
+        {
+          "name": "Bridge",
+          "meter": "4/4 with atmospheric quality",
+          "syllableCount": "Varied, flowing lines",
+          "description": "Dreamlike section that provides emotional contrast before returning to the final chorus."
+        }
+      ],
+      "diagramImage": "/assets/images/diagram-meter.svg"
+    },
+    "refrain": {
+      "title": "Refrain (Chorus)",
+      "lyrics": "But I'm a creep\nI'm a weirdo\nWhat the hell am I doing here?\nI don't belong here",
+      "startTime": "0:45",
+      "description": "The chorus serves as the emotional core of the song, expressing profound alienation and self-loathing. The repetition of 'I don't belong here' reinforces the theme of social outsider status."
+    },
+    "poeticDevices": {
+      "title": "Poetic Devices",
+      "metaphors": {
+        "title": "Metaphors",
+        "examples": [
+          {
+            "line": "You're just like an angel",
+            "explanation": "The object of affection is elevated to divine status, emphasizing the narrator's feelings of unworthiness"
+          },
+          {
+            "line": "You float like a feather in a beautiful world",
+            "explanation": "Contrasts the graceful, effortless existence of the loved one with the narrator's awkward, earthbound reality"
+          }
+        ]
+      },
+      "hyperbole": {
+        "title": "Hyperbole",
+        "examples": [
+          {
+            "line": "Your skin makes me cry",
+            "explanation": "Exaggerates the emotional impact of the person's beauty to an extreme degree, suggesting overwhelming emotional response"
+          },
+          {
+            "line": "I want a perfect body, I want a perfect soul",
+            "explanation": "Exaggerated demands for perfection that highlight the narrator's deep insecurities and unrealistic standards"
+          },
+          {
+            "line": "You're so fuckin' special",
+            "explanation": "Repetitive hyperbolic praise that emphasizes the unbridgeable gap between the narrator and the object of affection"
+          }
+        ]
+      },
+      "personification": {
+        "title": "Personification",
+        "examples": [
+          {
+            "line": "Your skin makes me cry",
+            "explanation": "Attributes active agency to the person's skin, as if it possesses the power to elicit emotional responses"
+          },
+          {
+            "line": "Whatever makes you happy",
+            "explanation": "Abstract concept of 'whatever' is given the human capacity to create happiness"
+          },
+          {
+            "line": "She's running out again",
+            "explanation": "The repeated action suggests the person is not just physically leaving but that her essence or presence is actively escaping"
+          }
+        ]
+      },
+      "assonance": {
+        "title": "Assonance",
+        "examples": [
+          {
+            "line": "When I'm not around",
+            "explanation": "The repeated 'ou' sound creates a mournful, longing quality"
+          },
+          {
+            "line": "I want you to notice",
+            "explanation": "The 'o' sounds emphasize the desire for attention and validation"
+          }
+        ]
+      },
+      "alliteration": {
+        "title": "Alliteration",
+        "examples": [
+          {
+            "line": "She's running out again",
+            "explanation": "The repeated 'r' sound creates a sense of urgency and panic"
+          },
+          {
+            "line": "Whatever you want",
+            "explanation": "The 'w' repetition conveys resignation and submission"
+          }
+        ]
+      }
+    },
+    "musicalAnalysis": {
+      "title": "Musical Analysis",
+      "tempo": {
+        "label": "Tempo (BPM)",
+        "value": "92 BPM",
+        "placeholder": 92
+      },
+      "chordProgression": {
+        "label": "Chord Progression",
+        "chords": ["G", "B", "C", "Cm"]
+      },
+      "key": "G major"
+    },
+    "lyrics": {
+      "title": "Lyrics Explorer",
+      "stanzas": [
+        {
+          "name": "Verse 1",
+          "content": "When you were here before\nCouldn't look you in the eye\nYou're just like an angel\nYour skin makes me cry\nYou float like a feather\nIn a beautiful world\nI wish I was special\nYou're so fuckin' special"
+        },
+        {
+          "name": "Chorus 1",
+          "content": "But I'm a creep\nI'm a weirdo\nWhat the hell am I doing here?\nI don't belong here"
+        },
+        {
+          "name": "Verse 2",
+          "content": "I don't care if it hurts\nI want to have control\nI want a perfect body\nI want a perfect soul\nI want you to notice\nWhen I'm not around\nYou're so fuckin' special\nI wish I was special"
+        },
+        {
+          "name": "Chorus 2",
+          "content": "But I'm a creep\nI'm a weirdo\nWhat the hell am I doing here?\nI don't belong here"
+        },
+        {
+          "name": "Bridge",
+          "content": "She's running out again\nShe's running out\nShe run, run, run run\nRun\n\nWhatever makes you happy\nWhatever you want\nYou're so fucking special\nI wish I was special"
+        },
+        {
+          "name": "Final Chorus",
+          "content": "But I'm a creep\nI'm a weirdo\nWhat the hell am I doing here?\nI don't belong here\nI don't belong here"
+        }
+      ]
+    },
+    "credits": {
+      "title": "Credits & Sources",
+      "description": "Analysis based on musical and lyrical examination of Radiohead's 'Creep' from their 1993 album 'Pablo Honey'.",
+      "sources": [
+        {
+          "title": "Radiohead Official Website",
+          "url": "https://www.radiohead.com",
+          "description": "Official band information and discography"
+        },
+        {
+          "title": "Songfacts - Creep by Radiohead",
+          "url": "https://www.songfacts.com/facts/radiohead/creep",
+          "description": "Historical context and songwriting background"
+        }
+      ]
+    },
+    "audio": {
+      "path": "/assets/audio/creep.mp3"
+    }
+  }
