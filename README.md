@@ -110,7 +110,7 @@ The app will automatically reference these paths. If images are missing, placeho
 
 1. Place your audio file at `public/assets/audio/creep.mp3`
 2. Update the path in `data/content.json` under `audio.path` if using a different filename
-3. Update the chorus start time in `data/content.json` under `refrain.startTime` (format: "M:SS", e.g., "0:45")
+3. Update the chorus start time in `data/content.json` under `refrain.startTime` (format: "M:SS", e.g., "0:57")
 
 ### 4. Update SEO Meta Tags
 

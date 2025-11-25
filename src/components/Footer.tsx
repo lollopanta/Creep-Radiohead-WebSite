@@ -69,8 +69,7 @@ export default function Footer({ content }: FooterProps) {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p>
-            {/* TODO: Replace with real copyright information */}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. TODO: Add copyright notice.
+            &copy; {new Date().getFullYear()} RadioHead. All rights reserved. Made with ❤️ by <a href="https://www.lollopanta.it" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark underline transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded">lollopanta</a>.
           </p>
         </motion.div>
       </div>

@@ -7,21 +7,40 @@ import { parseTimeString } from '../utils/parseTime';
 interface RefrainProps {
   content: ContentData['refrain'];
   audioPlayerRef: React.RefObject<AudioPlayerRef>;
+  onPlayChorusClick: () => void;
 }
 
-export default function Refrain({ content, audioPlayerRef }: RefrainProps) {
+export default function Refrain({ content, audioPlayerRef, onPlayChorusClick }: RefrainProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const handlePlayChorus = () => {
-    if (audioPlayerRef.current) {
-      // Parse startTime string (e.g., "0:45", "1:23:45") and convert to seconds
-      const timeInSeconds = parseTimeString(content.startTime);
-      if (timeInSeconds > 0) {
-        audioPlayerRef.current.seek(timeInSeconds);
-        audioPlayerRef.current.play();
+    // Open the modal first
+    onPlayChorusClick();
+    
+    // Wait for the modal to open and audio element to be ready
+    // Try multiple times in case the audio element needs more time to load
+    const attemptSeekAndPlay = (attempts = 0) => {
+      if (audioPlayerRef.current) {
+        const audioElement = audioPlayerRef.current.getAudioElement();
+        // Check if audio element is ready
+        if (audioElement && audioElement.readyState >= 2) {
+          // Seek to 0:57 (57 seconds)
+          const chorusStartTime = 57;
+          audioPlayerRef.current.seek(chorusStartTime);
+          audioPlayerRef.current.play();
+        } else if (attempts < 10) {
+          // Try again after a short delay (up to 10 attempts = ~1 second)
+          setTimeout(() => attemptSeekAndPlay(attempts + 1), 100);
+        }
+      } else if (attempts < 10) {
+        // Audio ref not ready yet, try again
+        setTimeout(() => attemptSeekAndPlay(attempts + 1), 100);
       }
-    }
+    };
+    
+    // Start attempting after initial delay
+    setTimeout(() => attemptSeekAndPlay(), 200);
   };
 
   return (

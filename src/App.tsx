@@ -89,7 +89,11 @@ function App() {
         <Structure content={content.structure} />
 
         {/* Refrain (Chorus) */}
-        <Refrain content={content.refrain} audioPlayerRef={audioPlayerRef} />
+        <Refrain 
+          content={content.refrain} 
+          audioPlayerRef={audioPlayerRef}
+          onPlayChorusClick={() => setIsAudioPlayerOpen(true)}
+        />
 
         {/* Poetic Devices */}
         <PoeticDevices content={content.poeticDevices} />
