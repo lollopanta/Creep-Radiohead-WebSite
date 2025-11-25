@@ -64,9 +64,6 @@ export default function MusicalAnalysis({ content, audioElement, isPlaying }: Mu
                 aria-label="Tempo slider (placeholder)"
                 disabled
               />
-              <p className="text-xs text-gray-500 italic">
-                TODO: Replace tempo value and slider with real analysis
-              </p>
             </div>
           </motion.div>
 
@@ -94,7 +91,6 @@ export default function MusicalAnalysis({ content, audioElement, isPlaying }: Mu
                     whileHover={{ scale: 1.1 }}
                   >
                     <span className="font-semibold text-primary">
-                      {/* TODO: Replace with real chord names */}
                       {chord}
                     </span>
                   </motion.div>
@@ -102,11 +98,7 @@ export default function MusicalAnalysis({ content, audioElement, isPlaying }: Mu
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-300">
                 <span className="font-semibold">Key:</span>{' '}
-                {/* TODO: Replace with real key */}
                 {content.key}
-              </p>
-              <p className="text-xs text-gray-500 italic">
-                TODO: Replace chord progression with real analysis
               </p>
             </div>
           </motion.div>
