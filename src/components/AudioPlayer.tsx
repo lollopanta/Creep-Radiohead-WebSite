@@ -62,7 +62,7 @@ const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
     // Expose methods to parent
     useImperativeHandle(ref, () => ({
       play: () => {
-        audioRef.current?.play().catch((err) => {
+        audioRef.current?.play().catch(() => {
           setError('Failed to play audio');
         });
       },
@@ -478,8 +478,6 @@ const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(
       };
     }, [isOpen, duration, togglePlayPause]);
 
-    // Calculate progress percentage
-    const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
     return (
       <AnimatePresence>

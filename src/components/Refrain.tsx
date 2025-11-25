@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ContentData } from '../types';
 import { AudioPlayerRef } from '../types';
-import { parseTimeString } from '../utils/parseTime';
 
 interface RefrainProps {
   content: ContentData['refrain'];

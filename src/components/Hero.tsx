@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ContentData } from '../types';
 
@@ -33,7 +33,6 @@ const Particle = ({ x, y }: { x: number; y: number }) => {
 };
 
 export default function Hero({ content, onPlayClick }: HeroProps) {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -53,7 +52,6 @@ export default function Hero({ content, onPlayClick }: HeroProps) {
         const rect = heroRef.current.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
-        setMousePosition({ x, y });
         mouseX.set(x);
         mouseY.set(y);
       }

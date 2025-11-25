@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { parseLRC, findActiveLyric, LyricLine } from '../utils/parseLRC';
 
 interface SyncedLyricsProps {
@@ -18,7 +18,7 @@ export default function SyncedLyrics({ currentTime, lrcPath }: SyncedLyricsProps
   const [error, setError] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(-1);
   const lyricsContainerRef = useRef<HTMLDivElement>(null);
-  const activeLineRef = useRef<HTMLDivElement>(null);
+  const lineRefs = useRef<(HTMLDivElement | null)[]>([]);
   const prefersReducedMotion = useReducedMotion();
 
   // Load and parse LRC file
@@ -73,30 +73,42 @@ export default function SyncedLyrics({ currentTime, lrcPath }: SyncedLyricsProps
 
   // Auto-scroll to active line
   useEffect(() => {
-    if (activeIndex >= 0 && activeLineRef.current && lyricsContainerRef.current && !prefersReducedMotion) {
+    if (activeIndex >= 0 && lyricsContainerRef.current) {
       const container = lyricsContainerRef.current;
-      const activeLine = activeLineRef.current;
+      const activeLine = lineRefs.current[activeIndex];
       
-      const containerRect = container.getBoundingClientRect();
-      const lineRect = activeLine.getBoundingClientRect();
+      if (!activeLine) return;
       
-      const lineTop = lineRect.top - containerRect.top + container.scrollTop;
-      const lineBottom = lineTop + lineRect.height;
-      const containerHeight = container.clientHeight;
-      const scrollTop = container.scrollTop;
-      
-      // Scroll if line is not visible
-      if (lineTop < scrollTop) {
-        container.scrollTo({
-          top: lineTop - 20,
-          behavior: 'smooth',
-        });
-      } else if (lineBottom > scrollTop + containerHeight) {
-        container.scrollTo({
-          top: lineBottom - containerHeight + 20,
-          behavior: 'smooth',
-        });
-      }
+      // Use requestAnimationFrame to ensure DOM is updated
+      requestAnimationFrame(() => {
+        if (!container || !activeLine) return;
+        
+        const containerRect = container.getBoundingClientRect();
+        const lineRect = activeLine.getBoundingClientRect();
+        
+        // Calculate positions relative to container
+        const lineTop = lineRect.top - containerRect.top + container.scrollTop;
+        const lineBottom = lineTop + lineRect.height;
+        const lineCenter = lineTop + (lineRect.height / 2);
+        const containerHeight = container.clientHeight;
+        const containerCenter = containerHeight / 2;
+        const scrollTop = container.scrollTop;
+        const scrollBottom = scrollTop + containerHeight;
+        
+        // Check if line is visible
+        const isLineVisible = lineTop >= scrollTop && lineBottom <= scrollBottom;
+        
+        // Calculate desired scroll position to center the active line
+        const desiredScrollTop = lineCenter - containerCenter;
+        
+        // Always scroll to keep active line centered, or if it's not visible
+        if (!isLineVisible || Math.abs(container.scrollTop - desiredScrollTop) > 5) {
+          container.scrollTo({
+            top: Math.max(0, desiredScrollTop),
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          });
+        }
+      });
     }
   }, [activeIndex, prefersReducedMotion]);
 
@@ -138,23 +150,27 @@ export default function SyncedLyrics({ currentTime, lrcPath }: SyncedLyricsProps
   }
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full overflow-hidden">
       <div
         ref={lyricsContainerRef}
         className="h-full overflow-y-auto scroll-smooth px-4 py-4"
         style={{
           scrollbarWidth: 'thin',
-          scrollbarColor: 'rgba(155, 155, 155, 0.5) transparent',
+          scrollbarColor: 'rgba(242, 167, 4, 0.5) transparent',
         }}
       >
-        <div className="space-y-1 text-center">
+        <div className="space-y-1 text-center pb-8">
           {displayLyrics.map((lyric, idx) => {
             const isActive = lyric.originalIndex === activeIndex;
             
             return (
               <motion.div
                 key={`${lyric.time}-${idx}`}
-                ref={isActive ? activeLineRef : null}
+                ref={(el) => {
+                  if (el) {
+                    lineRefs.current[lyric.originalIndex] = el;
+                  }
+                }}
                 className={`py-2 px-4 rounded-lg transition-all ${
                   isActive
                     ? 'bg-primary/20 dark:bg-primary/30 text-primary dark:text-pablo-yellow font-semibold'

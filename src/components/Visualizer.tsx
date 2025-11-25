@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 
 interface VisualizerProps {
   audioElement: HTMLAudioElement | null;
@@ -118,11 +117,14 @@ export default function Visualizer({ audioElement, isPlaying }: VisualizerProps)
       ctx.clearRect(0, 0, width, height);
 
       if (hasAudioContext && analyserRef.current && dataArrayRef.current && isPlaying) {
-        analyserRef.current.getByteFrequencyData(dataArrayRef.current);
+        // Create a new Uint8Array with explicit ArrayBuffer type for getByteFrequencyData
+        const bufferLength = dataArrayRef.current.length;
+        const dataArray = new Uint8Array(bufferLength);
+        analyserRef.current.getByteFrequencyData(dataArray);
 
         const barCount = 32;
         const barWidth = width / barCount;
-        const data = dataArrayRef.current;
+        const data = dataArray;
 
         // Pablo Honey color palette for visualizer
         const colors = ['#F2A704', '#EAC986', '#C77017', '#6484AC'];
